@@ -1,0 +1,1768 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      W1 Consultoria: Proposta de Organização Patrimonial – Irmãos Cardoso
+    </title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Montserrat:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        /* Paleta Original (Cofermapa) */
+        --primary-color: #0d1b2a;
+        --secondary-color: #00cec9; /* Ciano / Teal */
+        --accent-color-dark-theme: #1e293b;
+        --bg-dark-primary: #0d1b2a;
+        --bg-dark-secondary: #1c2a3a;
+        --bg-light-primary: #ffffff;
+        --bg-light-secondary: #f3f4f6;
+        --text-light-primary: #f3f4f6;
+        --text-light-secondary: #a0aec0;
+        --text-dark-primary: #1a202c;
+        --text-dark-secondary: #4a5568;
+        --border-color-dark: #334155;
+        --border-color-light: #e2e8f0;
+
+        /* Sombras Originais */
+        --card-shadow-dark: 0 4px 15px rgba(0, 0, 0, 0.2);
+        --card-shadow-light: 0 8px 20px rgba(0, 0, 0, 0.07);
+        --card-shadow-hover-light: 0 12px 28px rgba(0, 0, 0, 0.12),
+          0 5px 10px rgba(0, 0, 0, 0.1);
+        --card-shadow-hover-dark: 0 8px 25px rgba(0, 206, 201, 0.15),
+          0 4px 10px rgba(0, 206, 201, 0.1);
+
+        /* Fontes */
+        --font-primary: "Montserrat", "Segoe UI", Roboto, "Helvetica Neue",
+          Arial, sans-serif;
+        --font-secondary: "Lato", "Segoe UI", Roboto, "Helvetica Neue", Arial,
+          sans-serif;
+
+        /* Cores para as barras do Gantt */
+        --gantt-fase1-color: #b2ebf2;
+        --gantt-fase2-color: #80deea;
+        --gantt-fase3-color: #4dd0e1;
+        --gantt-fase4-color: #26c6da;
+        --gantt-fase5-color: #00bcd4;
+        --gantt-consultoria-color: #0097a7; /* Cor para a nova linha */
+
+        /* Cores para os organogramas */
+        --operational-sa-bg: #e0f7fa;
+        --patrimonial-sa-bg: #e0f7fa;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: var(--font-secondary);
+        line-height: 1.6;
+        color: var(--text-light-primary);
+        background-color: var(--bg-dark-primary);
+        overflow-x: hidden;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+      }
+
+      section {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 80px 20px;
+        position: relative;
+        text-align: center;
+        background-color: var(--bg-dark-primary);
+        color: var(--text-light-primary);
+        border-bottom: 1px solid var(--border-color-dark);
+        overflow: hidden;
+      }
+
+      section.light-section {
+        background-color: var(--bg-light-primary);
+        color: var(--text-dark-primary);
+        border-bottom: 1px solid var(--border-color-light);
+      }
+      section.light-gray-section {
+        background-color: var(--bg-light-secondary);
+        color: var(--text-dark-primary);
+        border-bottom: 1px solid var(--border-color-light);
+      }
+      section:last-of-type {
+        border-bottom: none;
+      }
+
+      /* --- Capa --- */
+      .capa-section {
+        background-color: var(--primary-color);
+        color: var(--text-light-primary);
+        height: 100vh;
+      }
+      .capa-content {
+        position: relative;
+        z-index: 2;
+        max-width: 850px;
+      }
+      .logo-container-capa {
+        margin-bottom: 35px;
+      }
+      .logo-shape-capa {
+        width: 110px;
+        height: 110px;
+        margin: 0 auto;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(0, 206, 201, 0.1);
+        border: 2px solid var(--secondary-color);
+        border-radius: 22px;
+        transform: rotate(45deg);
+        box-shadow: 0 0 20px rgba(0, 206, 201, 0.25);
+      }
+      .logo-text-capa {
+        font-family: var(--font-primary);
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--text-light-primary);
+        z-index: 2;
+        transform: rotate(-45deg);
+      }
+      .logo-text-capa span {
+        color: var(--secondary-color);
+      }
+      .capa-slide-title {
+        font-family: var(--font-primary);
+        font-size: 2.8rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        line-height: 1.3;
+        color: var(--text-light-primary);
+      }
+      .capa-slide-title .highlight {
+        color: var(--secondary-color);
+        display: block;
+        font-size: 2.2rem;
+        font-weight: 400;
+        margin-top: 10px;
+      }
+      .capa-details {
+        font-family: var(--font-secondary);
+        font-size: 1.2rem;
+        color: var(--text-light-secondary);
+        margin-top: 25px;
+      }
+
+      /* --- Capas de Seção --- */
+      .sectional-cover-slide {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-color: var(--bg-dark-secondary);
+        min-height: 100vh;
+      }
+      .sectional-cover-slide .container {
+        align-items: center;
+      }
+      .sectional-cover-title {
+        font-family: var(--font-primary);
+        font-size: 3.2rem;
+        font-weight: 700;
+        color: var(--text-light-primary);
+        line-height: 1.2;
+        border-bottom: 4px solid var(--secondary-color);
+        padding-bottom: 15px;
+        display: inline-block;
+      }
+
+      /* --- Títulos Padrão --- */
+      h2.section-title {
+        font-family: var(--font-primary);
+        font-size: 2.6rem;
+        font-weight: 300;
+        position: relative;
+        padding-bottom: 20px;
+        margin-bottom: 40px;
+      }
+      h2.section-title.on-light-bg {
+        color: var(--text-dark-primary);
+      }
+      h2.section-title::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+        width: 80px;
+        height: 4px;
+        background-color: var(--secondary-color);
+        border-radius: 2px;
+      }
+
+      /* --- Conteúdo em Lista --- */
+      .list-section-content ul {
+        list-style: none;
+        padding: 0;
+        max-width: 800px;
+        width: 100%;
+        margin: 0 auto;
+      }
+      .list-section-content li {
+        background-color: var(--accent-color-dark-theme);
+        padding: 18px 25px;
+        border-radius: 10px;
+        margin-bottom: 18px;
+        box-shadow: var(--card-shadow-dark);
+        font-size: 1.05rem;
+        text-align: left;
+        display: flex;
+        align-items: flex-start;
+        border-left: 4px solid var(--secondary-color);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        color: var(--text-light-primary);
+      }
+      .list-section-content li::before {
+        content: "▸";
+        color: var(--secondary-color);
+        font-weight: bold;
+        margin-right: 12px;
+        font-size: 1.1em;
+      }
+      section.light-section .list-section-content li,
+      section.light-gray-section .list-section-content li {
+        background-color: var(--bg-light-primary);
+        color: var(--text-dark-primary);
+        box-shadow: var(--card-shadow-light);
+      }
+      .list-section-content li:hover {
+        transform: translateY(-5px) scale(1.02);
+      }
+      section:not(.light-section):not(.light-gray-section)
+        .list-section-content
+        li:hover {
+        box-shadow: var(--card-shadow-hover-dark);
+      }
+      section.light-gray-section .list-section-content li:hover,
+      section.light-section .list-section-content li:hover {
+        box-shadow: var(--card-shadow-hover-light);
+      }
+
+      .list-section-content h3 {
+        font-family: var(--font-primary);
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--secondary-color);
+        margin-top: 30px;
+        margin-bottom: 15px;
+        text-align: left;
+      }
+      section.light-section .list-section-content h3,
+      section.light-gray-section .list-section-content h3 {
+        color: var(--primary-color);
+      }
+      .list-section-content .intro-paragraph {
+        font-size: 1.1rem;
+        color: var(--text-light-secondary);
+        margin-bottom: 25px;
+        max-width: 800px;
+        text-align: center;
+      }
+      section.light-section .list-section-content .intro-paragraph,
+      section.light-gray-section .list-section-content .intro-paragraph {
+        color: var(--text-dark-secondary);
+      }
+
+      /* --- Tabelas Tema Escuro --- */
+      .dark-theme-table {
+        width: 100%;
+        max-width: 900px;
+        margin: 20px auto;
+        border-collapse: collapse;
+        font-size: 0.95rem;
+        text-align: left;
+        background-color: var(--accent-color-dark-theme);
+        color: var(--text-light-primary);
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: var(--card-shadow-dark);
+      }
+      .dark-theme-table th,
+      .dark-theme-table td {
+        padding: 14px 18px;
+        border-bottom: 1px solid var(--border-color-dark);
+        vertical-align: middle;
+      }
+      .dark-theme-table th {
+        background-color: rgba(0, 0, 0, 0.2);
+        font-family: var(--font-primary);
+        font-weight: 700;
+        color: var(--secondary-color);
+        font-size: 0.9rem;
+        text-transform: uppercase;
+      }
+      .dark-theme-table tbody tr:last-child td {
+        border-bottom: none;
+      }
+      .dark-theme-table tbody tr:hover {
+        background-color: rgba(0, 206, 201, 0.05);
+      }
+      .dark-theme-table td:first-child {
+        font-weight: bold;
+        color: var(--text-light-primary);
+      }
+      .dark-theme-table .table-section-header td {
+        background-color: rgba(0, 206, 201, 0.1);
+        font-weight: bold;
+        color: var(--secondary-color);
+        text-align: center;
+        font-family: var(--font-primary);
+      }
+
+      /* --- Organograma --- */
+      .organogram-section {
+        background-color: var(--bg-light-secondary);
+        color: var(--text-dark-primary);
+        padding: 60px 20px;
+      }
+      .organogram-section h2.section-title::after {
+        background-color: var(--secondary-color);
+      }
+      .organogram-container {
+        text-align: center;
+        width: 100%;
+        max-width: 1050px;
+        margin: 20px auto 0;
+      }
+      .organogram-container img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: var(--card-shadow-light);
+        margin-top: 10px;
+        background-color: #fff;
+      }
+      .organogram-container .node {
+        background-color: var(--bg-light-primary);
+        border: 1px solid var(--border-color-light);
+        color: var(--text-dark-primary);
+        padding: 15px 20px;
+        border-radius: 8px;
+        display: inline-block;
+        margin: 10px;
+        min-width: 220px;
+        max-width: 280px;
+        box-shadow: var(--card-shadow-light);
+        position: relative;
+        vertical-align: top;
+        text-align: left;
+      }
+      .organogram-container .node.sa-node.operational-sa {
+        background-color: var(--operational-sa-bg);
+        border: 2px solid var(--secondary-color);
+      }
+      .organogram-container .node.sa-node.patrimonial-sa {
+        background-color: var(--patrimonial-sa-bg);
+        border: 2px solid var(--secondary-color);
+      }
+      .organogram-container .node.current-person-node {
+        background-color: #fffbe6;
+        border-color: #f59e0b;
+        color: #78350f;
+      }
+      .organogram-container .node h4 {
+        margin: 0 0 10px 0;
+        font-family: var(--font-primary);
+        font-weight: 600;
+        font-size: 1.05em;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        padding-bottom: 8px;
+        text-align: center;
+      }
+      .organogram-container .node p {
+        font-size: 0.85em;
+        line-height: 1.5;
+        text-align: center;
+      }
+      .organogram-container .level {
+        margin: 20px 0;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: flex-start;
+      }
+      .organogram-container .connector {
+        width: 2px;
+        background-color: #a0aec0;
+        margin: 0 auto;
+        position: relative;
+      }
+      .organogram-container .connector.vertical-line {
+        height: 30px;
+      }
+
+      .organogram-container .risks-list {
+        margin-top: 30px;
+        max-width: 700px;
+      }
+      .organogram-container .risks-list li {
+        font-size: 1rem;
+        background-color: #fff0f0;
+        border-left-color: #e53e3e;
+      }
+      .organogram-container .risks-list li::before {
+        content: "⚠️";
+        color: #e53e3e;
+        margin-right: 10px;
+      }
+      .organogram-container .node.operational-company-node {
+        background-color: #f0f9ff;
+        border-color: #a0d2db;
+      }
+
+      /* --- Layout de Cards Lado a Lado --- */
+      .side-by-side-container {
+        display: flex;
+        justify-content: space-around;
+        gap: 30px;
+        width: 100%;
+        max-width: 1100px;
+        margin-top: 20px;
+        align-items: stretch;
+      }
+      .info-card {
+        background-color: var(--accent-color-dark-theme);
+        padding: 25px 30px;
+        border-radius: 12px;
+        border-top: 4px solid var(--secondary-color);
+        box-shadow: var(--card-shadow-dark);
+        flex: 1;
+        text-align: left;
+      }
+      .info-card h3 {
+        font-family: var(--font-primary);
+        font-size: 1.4rem;
+        color: var(--secondary-color);
+        margin-bottom: 15px;
+      }
+      .info-card p {
+        color: var(--text-light-secondary);
+        margin-bottom: 1rem;
+        line-height: 1.7;
+      }
+      .info-card p:last-child {
+        margin-bottom: 0;
+      }
+      .info-card p strong {
+        color: var(--text-light-primary);
+      }
+
+      /* --- 3 Camadas Layout (reuso do side-by-side) --- */
+      .three-layers-container {
+        display: flex;
+        justify-content: space-around;
+        gap: 30px;
+        width: 100%;
+        max-width: 1100px;
+        margin-top: 20px;
+      }
+      .layer-card {
+        background-color: var(--accent-color-dark-theme);
+        padding: 25px;
+        border-radius: 12px;
+        border-top: 4px solid var(--secondary-color);
+        box-shadow: var(--card-shadow-dark);
+        flex: 1;
+        text-align: left;
+      }
+      .layer-card h3 {
+        font-family: var(--font-primary);
+        font-size: 1.4rem;
+        color: var(--secondary-color);
+        margin-bottom: 15px;
+      }
+      .layer-card ul {
+        list-style: none;
+        padding: 0;
+      }
+      .layer-card ul li {
+        margin-bottom: 10px;
+        padding-left: 20px;
+        position: relative;
+        color: var(--text-light-secondary);
+      }
+      .layer-card ul li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--secondary-color);
+        font-weight: bold;
+      }
+
+      /* --- Antes x Depois --- */
+      .comparison-section {
+        display: flex;
+        gap: 40px;
+        width: 100%;
+        max-width: 1100px;
+        margin-top: 30px;
+      }
+      .comparison-column {
+        flex: 1;
+        background-color: var(--bg-light-primary);
+        color: var(--text-dark-primary);
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: var(--card-shadow-light);
+      }
+      .comparison-column h3 {
+        font-family: var(--font-primary);
+        font-size: 2rem;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid;
+      }
+      .comparison-column.before h3 {
+        color: #e53e3e;
+        border-bottom-color: #e53e3e;
+      }
+      .comparison-column.after h3 {
+        color: #38a169;
+        border-bottom-color: #38a169;
+      }
+      .comparison-column ul {
+        list-style: none;
+        padding: 0;
+        text-align: left;
+      }
+      .comparison-column ul li {
+        font-size: 1rem;
+        margin-bottom: 15px;
+        padding-left: 25px;
+        position: relative;
+      }
+      .comparison-column.before ul li::before {
+        content: "✗";
+        color: #e53e3e;
+        position: absolute;
+        left: 0;
+        font-weight: bold;
+      }
+      .comparison-column.after ul li::before {
+        content: "✓";
+        color: #38a169;
+        position: absolute;
+        left: 0;
+        font-weight: bold;
+      }
+
+      /* --- Gantt Chart --- */
+      .gantt-section {
+        background-color: var(--bg-light-primary);
+        color: var(--text-dark-primary);
+        padding: 30px 20px;
+        border-radius: 10px;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+      }
+      .gantt-chart-wrapper {
+        width: 100%;
+        padding: 5px 0;
+        overflow-x: auto;
+      }
+      .gantt-container-inner {
+        width: 100%;
+        min-width: 1000px;
+        border: 1px solid var(--border-color-light);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .gantt-header {
+        display: grid;
+        grid-template-columns: 4fr repeat(9, 1fr); /* Alterado de 3fr para 4fr */
+        background-color: #eef2f5;
+        font-weight: 600;
+        font-family: var(--font-primary);
+      }
+      .gantt-header > div {
+        padding: 10px 8px;
+        text-align: center;
+        border-right: 1px solid var(--border-color-light);
+        font-size: 0.8em;
+      }
+      .gantt-header .header-task {
+        text-align: left;
+        padding-left: 15px;
+      }
+      .gantt-row {
+        display: grid;
+        grid-template-columns: 4fr repeat(9, 1fr); /* Alterado de 3fr para 4fr */
+        border-bottom: 1px solid var(--border-color-light);
+      }
+      .gantt-row:last-child {
+        border-bottom: none;
+      }
+      .gantt-task-name {
+        padding: 9px 15px;
+        font-size: 0.85em;
+        color: var(--text-dark-secondary);
+        border-right: 1px solid var(--border-color-light);
+        display: flex;
+        align-items: center;
+      }
+      .gantt-phase-cell {
+        position: relative;
+        padding: 7px 5px;
+        border-right: 1px solid var(--border-color-light);
+      }
+      .gantt-bar-container {
+        width: 95%;
+        height: 20px;
+        background-color: transparent;
+        border-radius: 4px;
+        overflow: hidden;
+        margin: auto;
+      }
+      .gantt-bar {
+        height: 100%;
+        border-radius: 4px;
+      }
+      .bar-fase1 {
+        width: 100%;
+        background-color: var(--gantt-fase1-color);
+      }
+      .bar-fase2 {
+        width: 100%;
+        background-color: var(--gantt-fase2-color);
+      }
+      .bar-fase3 {
+        width: 100%;
+        background-color: var(--gantt-fase3-color);
+      }
+      .bar-fase4 {
+        width: 100%;
+        background-color: var(--gantt-fase4-color);
+      }
+      .bar-fase5 {
+        width: 100%;
+        background-color: var(--gantt-fase5-color);
+      }
+      .bar-consultoria {
+        width: 100%;
+        background-color: var(--gantt-consultoria-color);
+      }
+
+      /* --- Investimento --- */
+      .investment-card-vista {
+        background-color: var(--accent-color-dark-theme);
+        padding: 30px 40px;
+        border-radius: 12px;
+        box-shadow: var(--card-shadow-dark);
+        text-align: center;
+        border: 1px solid var(--border-color-dark);
+        border-top: 4px solid var(--secondary-color);
+        max-width: 500px;
+        margin: 20px auto;
+      }
+      .investment-card-vista h5 {
+        font-family: var(--font-primary);
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+      .investment-card-vista .price {
+        font-family: var(--font-primary);
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--secondary-color);
+        margin-top: 10px;
+        display: block;
+      }
+      .investment-subtitle {
+        font-size: 1.2rem;
+        color: var(--text-light-secondary);
+        margin-bottom: 15px;
+      }
+
+      /* --- Final --- */
+      .final-message-text {
+        font-family: var(--font-secondary);
+        font-size: 1.7rem;
+        line-height: 1.7;
+        font-weight: 400;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .final-message-text strong {
+        color: var(--secondary-color);
+        font-weight: 700;
+      }
+      .final-quote {
+        font-family: var(--font-primary);
+        font-size: 1.5rem;
+        font-style: italic;
+        color: var(--text-light-secondary);
+        max-width: 700px;
+        margin: 40px auto;
+      }
+      .final-cta {
+        font-family: var(--font-primary);
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--secondary-color);
+      }
+
+      /* --- Logo Apenas --- */
+      .logo-only-slide {
+        background-color: var(--bg-dark-primary);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+        border-bottom: none;
+      }
+      .logo-only-slide .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+      }
+      .logo-only-slide img {
+        max-width: 50vw;
+        max-height: 50vh;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+      }
+
+      /* --- Navegação --- */
+      .navigation {
+        position: fixed;
+        right: 30px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1000;
+      }
+      .nav-dots {
+        list-style: none;
+        padding: 0;
+      }
+      .nav-dot {
+        margin: 8px 0;
+      }
+      .nav-link {
+        display: block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        transition: all 0.3s ease;
+        position: relative;
+      }
+      .nav-link.on-light-bg-dot {
+        background-color: rgba(0, 0, 0, 0.25);
+        border: 1px solid rgba(0, 0, 0, 0.35);
+      }
+      .nav-link:hover,
+      .nav-link.active {
+        background-color: var(--secondary-color);
+        border-color: var(--secondary-color);
+        transform: scale(1.3);
+        box-shadow: 0 0 8px var(--secondary-color);
+      }
+      .nav-tooltip {
+        position: absolute;
+        right: 25px;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: var(--accent-color-dark-theme);
+        color: var(--text-light-primary);
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+      }
+      .nav-link.on-light-bg-dot .nav-tooltip {
+        background-color: var(--bg-light-primary);
+        color: var(--text-dark-primary);
+        border: 1px solid var(--border-color-light);
+      }
+      .nav-link:hover .nav-tooltip {
+        opacity: 1;
+        visibility: visible;
+        right: 30px;
+      }
+
+      /* --- Responsividade --- */
+      @media (max-width: 768px) {
+        .three-layers-container,
+        .comparison-section,
+        .side-by-side-container {
+          flex-direction: column;
+        }
+        .capa-slide-title {
+          font-size: 2.2rem;
+        }
+        .capa-slide-title .highlight {
+          font-size: 1.8rem;
+        }
+        h2.section-title,
+        .sectional-cover-title {
+          font-size: 2rem;
+        }
+        .navigation {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navigation">
+      <ul class="nav-dots">
+        <li class="nav-dot">
+          <a href="#slide-1" class="nav-link"
+            ><span class="nav-tooltip">Início</span></a
+          >
+        </li>
+        <li class="nav-dot">
+          <a href="#slide-2" class="nav-link active"
+            ><span class="nav-tooltip">Abertura</span></a
+          >
+        </li>
+        <li class="nav-dot">
+          <a href="#slide-3" class="nav-link"
+            ><span class="nav-tooltip">Apresentação</span></a
+          >
+        </li>
+        <li class="nav-dot">
+          <a href="#slide-4" class="nav-link"
+            ><span class="nav-tooltip">Objetivos</span></a
+          >
+        </li>
+        <li class="nav-dot">
+          <a href="#slide-5" class="nav-link"
+            ><span class="nav-tooltip">Diagnóstico</span></a
+          >
+        </li>
+        <li class="nav-dot">
+          <a href="#slide-6" class="nav-link"
+            ><span class="nav-tooltip">Estrutura Atual</span></a
+          >
+        </li>
+        <li class="nav-dot">
+          <a href="#slide-7" class="nav-link"
+            ><span class="nav-tooltip">Desafios Atuais</span></a
+          >
+        </li>
+        <li class="nav-dot">
+          <a href="#slide-8" class="nav-link"
+            ><span class="nav-tooltip">Nossa Solução</span></a
+          >
+        </li>
+        <li class="nav-dot">
+          <a href="#slide-9" class="nav-link"
+            ><span class="nav-tooltip">Visão Geral da Solução</span></a
+          >
+        </li>
+        <li class="nav-dot">
+          <a href="#slide-10" class="nav-link"
+            ><span class="nav-tooltip">Holdings Patrimoniais</span></a
+          >
+        </li>
+        <li class="nav-dot">
+          <a href="#slide-11" class="nav-link"
+            ><span class="nav-tooltip">Estrutura Patrimonial</span></a
+          >
+        </li>
+        <li class="nav-dot">
+          <a href="#slide-12" class="nav-link"
+            ><span class="nav-tooltip">Holding de Participações</span></a
+          >
+        </li>
+        <li class="nav-dot">
+          <a href="#slide-13" class="nav-link"
+            ><span class="nav-tooltip">Estrutura de Participações</span></a
+          >
+        </li>
+        <li class="nav-dot">
+          <a href="#slide-14" class="nav-link"
+            ><span class="nav-tooltip">Transformação Operacional</span></a
+          >
+        </li>
+        <li class="nav-dot">
+          <a href="#slide-15" class="nav-link"
+            ><span class="nav-tooltip">Blindagem Completa</span></a
+          >
+        </li>
+        <li class="nav-dot">
+          <a href="#slide-16" class="nav-link"
+            ><span class="nav-tooltip">Resultados</span></a
+          >
+        </li>
+        <li class="nav-dot">
+          <a href="#slide-17" class="nav-link"
+            ><span class="nav-tooltip">Antes x Depois</span></a
+          >
+        </li>
+        <li class="nav-dot">
+          <a href="#slide-18" class="nav-link"
+            ><span class="nav-tooltip">Resumo Executivo</span></a
+          >
+        </li>
+        <li class="nav-dot">
+          <a href="#slide-19" class="nav-link"
+            ><span class="nav-tooltip">Benefícios</span></a
+          >
+        </li>
+        <li class="nav-dot">
+          <a href="#slide-20" class="nav-link"
+            ><span class="nav-tooltip">Benefícios Financeiros</span></a
+          >
+        </li>
+        <li class="nav-dot">
+          <a href="#slide-21" class="nav-link"
+            ><span class="nav-tooltip">Investimento</span></a
+          >
+        </li>
+        <li class="nav-dot">
+          <a href="#slide-22" class="nav-link"
+            ><span class="nav-tooltip">Cronograma</span></a
+          >
+        </li>
+        <li class="nav-dot">
+          <a href="#slide-23" class="nav-link"
+            ><span class="nav-tooltip">Próximos Passos</span></a
+          >
+        </li>
+        <li class="nav-dot">
+          <a href="#slide-24" class="nav-link"
+            ><span class="nav-tooltip">Decisão</span></a
+          >
+        </li>
+        <li class="nav-dot">
+          <a href="#slide-25" class="nav-link"
+            ><span class="nav-tooltip">Call to Action</span></a
+          >
+        </li>
+        <li class="nav-dot">
+          <a href="#slide-26" class="nav-link"
+            ><span class="nav-tooltip">Fim</span></a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <section id="slide-1" class="logo-only-slide">
+      <div class="container">
+        <img src="https://i.postimg.cc/MKD8hCs3/logo-w1.png" alt="W1 Logo" />
+      </div>
+    </section>
+
+    <section id="slide-2" class="capa-section">
+      <div class="capa-content">
+        <div class="logo-container-capa">
+          <div class="logo-shape-capa">
+            <div class="logo-text-capa">W<span>1</span></div>
+          </div>
+        </div>
+        <h1 class="capa-slide-title">
+          PLANEJAMENTO ESTRATÉGICO
+          <span class="highlight">Irmãos Jairo e Cairo</span>
+        </h1>
+        <p class="capa-details">Julho 2025</p>
+      </div>
+    </section>
+
+    <section id="slide-3" class="sectional-cover-slide">
+      <div class="container">
+        <h1 class="sectional-cover-title">APRESENTAÇÃO E OBJETIVOS</h1>
+      </div>
+    </section>
+
+    <section id="slide-4" class="list-section-content">
+      <div class="container">
+        <h2 class="section-title">O Que Vamos Alcançar Juntos</h2>
+        <p class="intro-paragraph">
+          <strong></strong> Criação de uma estrutura patrimonial que proteja,
+          organize e perpetue o patrimônio familiar.
+        </p>
+        <h3>OBJETIVOS ESPECÍFICOS:</h3>
+        <ul>
+          <li><span>Evitar riscos de sucessão cruzada</span></li>
+          <li><span>Proteger o patrimônio de cada núcleo familiar</span></li>
+          <li><span>Permitir governança compartilhada e organizada</span></li>
+          <li><span>Flexibilizar separação futura dos núcleos</span></li>
+          <li><span>Prevenir problemas tributários futuros</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="slide-5" class="sectional-cover-slide">
+      <div class="container">
+        <h1 class="sectional-cover-title">DIAGNÓSTICO ATUAL</h1>
+      </div>
+    </section>
+
+    <section id="slide-6" class="organogram-section light-section">
+      <div class="container">
+        <h2 class="section-title on-light-bg">Sua Estrutura Atual</h2>
+        <div class="organogram-container">
+          <img
+            src="https://i.postimg.cc/Nf1nFTr3/Whats-App-Image-2025-07-07-at-17-15-24-2.jpg"
+            alt="Organograma da Estrutura Societária Atual"
+          />
+          <p class="intro-paragraph" style="margin-top: 30px"></p>
+          <h3
+            class="section-title on-light-bg"
+            style="
+              font-size: 1.8rem;
+              margin-top: 40px;
+              margin-bottom: 10px;
+              color: #c53030;
+            "
+          ></h3>
+        </div>
+      </div>
+    </section>
+
+    <section id="slide-7" class="list-section-content">
+      <div class="container">
+        <h2 class="section-title">Os Riscos Que Você Enfrenta Hoje</h2>
+        <ul style="max-width: 900px">
+          <li>
+            <span
+              ><strong>Sucessão Cruzada:</strong> Patrimônio vulnerável entre
+              núcleos familiares.</span
+            >
+          </li>
+          <li>
+            <span
+              ><strong>Inventário Complexo:</strong> Processo demorado e custoso
+              para herdeiros.</span
+            >
+          </li>
+          <li>
+            <span
+              ><strong>Exposição Tributária:</strong> ITCMD e IR elevados em
+              transmissões.</span
+            >
+          </li>
+          <li>
+            <span
+              ><strong>Riscos Conjugais:</strong> Patrimônio desprotegido em
+              caso de divórcio.</span
+            >
+          </li>
+          <li>
+            <span
+              ><strong>Governança Familiar:</strong> Falta de estrutura para
+              decisões compartilhadas.</span
+            >
+          </li>
+          <li>
+            <span
+              ><strong>Operação x Patrimônio:</strong> Ativos misturados
+              aumentam riscos.</span
+            >
+          </li>
+        </ul>
+        <p
+          class="intro-paragraph"
+          style="font-weight: bold; color: #e53e3e; margin-top: 30px"
+        ></p>
+      </div>
+    </section>
+
+    <section id="slide-8" class="sectional-cover-slide">
+      <div class="container">
+        <h1 class="sectional-cover-title">NOSSA SOLUÇÃO ESTRUTURAL</h1>
+      </div>
+    </section>
+
+    <section id="slide-9">
+      <div class="container">
+        <h2 class="section-title">
+          Nossa Solução: Estrutura Modular em 3 Camadas
+        </h2>
+        <div class="three-layers-container">
+          <div class="layer-card">
+            <h3>CAMADA PATRIMONIAL</h3>
+            <ul>
+              <li>Proteção de imóveis e bens</li>
+              <li>Redução de ITCMD via usufruto</li>
+            </ul>
+          </div>
+          <div class="layer-card">
+            <h3>CAMADA DE PARTICIPAÇÕES</h3>
+            <ul>
+              <li>Governança compartilhada</li>
+              <li>Controle organizado das empresas</li>
+            </ul>
+          </div>
+          <div class="layer-card">
+            <h3>CAMADA OPERACIONAL</h3>
+            <ul>
+              <li>Empresas transformadas em S.A.</li>
+              <li>Separação patrimônio x operação</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="slide-10" class="list-section-content">
+      <div class="container">
+        <h2 class="section-title">Camada 1: Holdings Patrimoniais</h2>
+        <p class="intro-paragraph">
+          <strong>Patrimonial Jairo S.A.</strong> e
+          <strong>Patrimonial Cairo S.A.</strong> para cada núcleo familiar.
+        </p>
+        <table class="dark-theme-table">
+          <thead>
+            <tr>
+              <th>Benefício Imediato</th>
+              <th>Descrição</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Integralização com Usufruto</td>
+              <td>
+                Permite o planejamento sucessório com economia de ITCMD, que é
+                reduzido ou diferido.
+              </td>
+            </tr>
+            <tr>
+              <td>Proteção Conjugal</td>
+              <td>
+                Os bens integralizados na holding ficam protegidos em caso de
+                divórcio ou separação.
+              </td>
+            </tr>
+            <tr>
+              <td>Sucessão Escalonada</td>
+              <td>
+                Reduz drasticamente a complexidade e os custos de um futuro
+                inventário.
+              </td>
+            </tr>
+            <tr>
+              <td>Proteção por Incapacidade</td>
+              <td>
+                Garante a administração e a continuidade da gestão do patrimônio
+                em caso de invalidez.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="slide-11" class="organogram-section light-section">
+      <div class="container">
+        <h2 class="section-title on-light-bg">
+          Visão da Estrutura Patrimonial Proposta
+        </h2>
+        <div class="organogram-container">
+          <img
+            src="https://i.postimg.cc/kGNyJQhw/Whats-App-Image-2025-07-07-at-17-18-56-2.jpg"
+            alt="Visão da Estrutura Patrimonial Proposta"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section id="slide-12" class="list-section-content">
+      <div class="container">
+        <h2 class="section-title">Camada 2: Governança Inteligente</h2>
+        <p class="intro-paragraph">
+          Criação do <strong>Grupo Cardoso Participações S.A.</strong>,
+          controlada 50% por cada holding patrimonial, para gerir os negócios
+          compartilhados.
+        </p>
+        <table class="dark-theme-table">
+          <thead>
+            <tr>
+              <th>Componente</th>
+              <th>Detalhes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Empresas sob Controle</td>
+              <td>
+                CLC Empreendimentos, Mazo Empreendimentos, JPC Construtora, CWJ
+                Comercialização, Loteamento Caconde SPE.
+              </td>
+            </tr>
+            <tr>
+              <td>Conselho de Administração</td>
+              <td>
+                Paritário, garantindo equilíbrio e representatividade
+                igualitária nas decisões estratégicas.
+              </td>
+            </tr>
+            <tr>
+              <td>Políticas de Dividendos</td>
+              <td>
+                Estruturadas para proporcionar clareza e previsibilidade na
+                distribuição de lucros.
+              </td>
+            </tr>
+            <tr>
+              <td>Protocolo Sucessório</td>
+              <td>
+                Define regras claras para a entrada e saída de herdeiros na
+                sociedade.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="slide-13" class="organogram-section light-section">
+      <div class="container">
+        <h2 class="section-title on-light-bg">
+          Visão da Estrutura de Participações
+        </h2>
+        <div class="organogram-container">
+          <img
+            src="https://i.postimg.cc/qMb38Dny/Whats-App-Image-2025-07-07-at-17-27-55-3.jpg"
+            alt="Visão da Estrutura de Participações"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section id="slide-14" class="list-section-content">
+      <div class="container">
+        <h2 class="section-title">
+          Camada 3: Empresas Preparadas para o Futuro
+        </h2>
+        <p class="intro-paragraph">
+          Transformação das empresas chave em Sociedade Anônima (S.A.) para
+          profissionalizar a gestão e proteger o capital.
+        </p>
+        <table class="dark-theme-table">
+          <thead>
+            <tr>
+              <th>Componente</th>
+              <th>Impacto e Detalhes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Separação Capital x Operação</td>
+              <td>Protege o patrimônio do controle da operação diária.</td>
+            </tr>
+            <tr>
+              <td>Governança e Compliance</td>
+              <td>Implementação robusta de melhores práticas de gestão.</td>
+            </tr>
+            <tr>
+              <td>Credibilidade de Mercado</td>
+              <td>Aumenta a confiança de bancos, clientes e fornecedores.</td>
+            </tr>
+            <tr>
+              <td>Facilidade para Investimentos</td>
+              <td>
+                Cria uma estrutura pronta para receber futuros sócios ou
+                investidores.
+              </td>
+            </tr>
+            <tr>
+              <td>Resultado</td>
+              <td>
+                3 empresas transformadas em S.A., 4 mantidas como Ltda sob
+                controle das holdings, e 1 (Café Direto) com avaliação
+                estratégica futura.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="slide-15" class="list-section-content">
+      <div class="container">
+        <h2 class="section-title">Blindagem Completa: Acordos e Cláusulas</h2>
+        <p class="intro-paragraph">
+          A estrutura jurídica é fortalecida com documentos que regem as
+          relações familiares e empresariais, garantindo a perenidade do acordo.
+        </p>
+        <table class="dark-theme-table">
+          <thead>
+            <tr>
+              <th>Ferramenta de Proteção</th>
+              <th>Finalidade</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Acordos de Acionistas</td>
+              <td>
+                Criação de acordos distintos para as holdings patrimoniais e
+                para a de participações.
+              </td>
+            </tr>
+            <tr>
+              <td>Cláusula de Incapacidade</td>
+              <td>
+                Garante a continuidade da gestão em caso de impedimento de um
+                dos sócios.
+              </td>
+            </tr>
+            <tr>
+              <td>Cláusula de Aprovação de Herdeiros</td>
+              <td>
+                Requer aprovação conjunta para a entrada de novos sócios na
+                estrutura.
+              </td>
+            </tr>
+            <tr>
+              <td>Golden Share</td>
+              <td>
+                Concede voto de qualidade para o núcleo fundador em decisões
+                estratégicas críticas.
+              </td>
+            </tr>
+            <tr>
+              <td>Cláusula de Reversibilidade</td>
+              <td>
+                Protege o patrimônio doado em caso de eventos inesperados, como
+                o falecimento de um herdeiro.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="slide-16" class="sectional-cover-slide">
+      <div class="container">
+        <h1 class="sectional-cover-title">TRANSFORMAÇÃO E RESULTADOS</h1>
+      </div>
+    </section>
+
+    <section id="slide-17" class="light-gray-section">
+      <div class="container">
+        <h2 class="section-title on-light-bg">Veja a Diferença na Prática</h2>
+        <div class="comparison-section">
+          <div class="comparison-column before">
+            <h3>ANTES</h3>
+            <ul>
+              <li>Patrimônio pessoal exposto</li>
+              <li>Empresas no nome dos sócios</li>
+              <li>Participações sem governança</li>
+              <li>Ausência de proteção sucessória</li>
+            </ul>
+          </div>
+          <div class="comparison-column after">
+            <h3>DEPOIS</h3>
+            <ul>
+              <li>Patrimônio blindado em holdings</li>
+              <li>Empresas profissionalizadas em S.A.</li>
+              <li>Governança compartilhada organizada</li>
+              <li>Sucessão escalonada protegida</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="slide-18" class="list-section-content">
+      <div class="container">
+        <h2 class="section-title">O Que Você Terá ao Final</h2>
+        <table class="dark-theme-table">
+          <thead>
+            <tr>
+              <th>Categoria</th>
+              <th>Entregável / Resultado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Novas S.A.s</td>
+              <td>
+                4 Sociedades Anônimas (2 patrimoniais + 1 de participações).
+              </td>
+            </tr>
+            <tr>
+              <td>Empresas Transformadas</td>
+              <td>3 empresas-chave convertidas para o modelo S.A.</td>
+            </tr>
+            <tr>
+              <td>Empresas Mantidas</td>
+              <td>
+                4 empresas permanecem como Ltda, agora sob o controle seguro da
+                holding.
+              </td>
+            </tr>
+            <tr>
+              <td>Avaliação Futura</td>
+              <td>
+                1 empresa (Café Direto) com planejamento estratégico a definir.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="slide-19" class="sectional-cover-slide">
+      <div class="container">
+        <h1 class="sectional-cover-title">BENEFÍCIOS E INVESTIMENTO</h1>
+      </div>
+    </section>
+
+    <section id="slide-20" class="list-section-content">
+      <div class="container">
+        <h2 class="section-title">Benefícios Financeiros: Economia Real</h2>
+        <table class="dark-theme-table">
+          <thead>
+            <tr>
+              <th>Tipo de Benefício</th>
+              <th>Descrição da Vantagem</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ITCMD</td>
+              <td>
+                Diferimento ou redução significativa via doação de quotas com
+                reserva de usufruto.
+              </td>
+            </tr>
+            <tr>
+              <td>Imposto de Renda</td>
+              <td>
+                Estrutura otimizada para futuras transmissões de patrimônio com
+                menor impacto fiscal.
+              </td>
+            </tr>
+            <tr>
+              <td>Custos de Inventário</td>
+              <td>
+                Redução de 70% a 90% dos custos processuais, cartoriais e
+                advocatícios.
+              </td>
+            </tr>
+            <tr>
+              <td>Proteção Patrimonial</td>
+              <td>
+                Blindagem conjugal completa e isolamento dos ativos contra
+                riscos empresariais.
+              </td>
+            </tr>
+            <tr>
+              <td>Continuidade dos Negócios</td>
+              <td>
+                Sucessão escalonada e eficiente, garantindo a perenidade das
+                operações.
+              </td>
+            </tr>
+            <tr>
+              <td>Governança Profissional</td>
+              <td>
+                Decisões organizadas, documentadas e com um protocolo claro para
+                herdeiros e gestão.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="slide-21">
+      <div class="container">
+        <h2 class="section-title">Investimento na Estrutura Completa</h2>
+        <div class="investment-card-vista">
+          <h5>Plano de Pagamento</h5>
+          <span class="price">12x R$ 19.503,75</span>
+        </div>
+        <p class="investment-subtitle" style="margin-top: 20px">
+          Um investimento na segurança, perenidade e tranquilidade da sua
+          família.
+        </p>
+      </div>
+    </section>
+
+    <section id="slide-22" class="gantt-section">
+      <div class="container">
+        <h2 class="section-title on-light-bg">Cronograma de Implementação</h2>
+        <div class="gantt-chart-wrapper">
+          <div class="gantt-container-inner">
+            <div class="gantt-header">
+              <div class="header-task">Fase / Atividade Principal</div>
+              <div>Mês 1</div>
+              <div>Mês 2</div>
+              <div>Mês 3</div>
+              <div>Mês 4</div>
+              <div>Mês 5</div>
+              <div>Mês 6</div>
+              <div>Ano 1</div>
+              <div>Ano 2</div>
+              <div>Ano 3</div>
+            </div>
+            <div class="gantt-row">
+              <div class="gantt-task-name">
+                <strong>Fase 1:</strong> Constituição das Holdings Patrimoniais
+              </div>
+              <div class="gantt-phase-cell">
+                <div class="gantt-bar-container">
+                  <div class="gantt-bar bar-fase1"></div>
+                </div>
+              </div>
+              <div class="gantt-phase-cell"></div>
+              <div class="gantt-phase-cell"></div>
+              <div class="gantt-phase-cell"></div>
+              <div class="gantt-phase-cell"></div>
+              <div class="gantt-phase-cell"></div>
+              <div class="gantt-phase-cell"></div>
+              <div class="gantt-phase-cell"></div>
+              <div class="gantt-phase-cell"></div>
+            </div>
+            <div class="gantt-row">
+              <div class="gantt-task-name">
+                <strong>Fase 2:</strong> Criação da Holding de Participações
+              </div>
+              <div class="gantt-phase-cell"></div>
+              <div class="gantt-phase-cell">
+                <div class="gantt-bar-container">
+                  <div class="gantt-bar bar-fase2"></div>
+                </div>
+              </div>
+              <div class="gantt-phase-cell"></div>
+              <div class="gantt-phase-cell"></div>
+              <div class="gantt-phase-cell"></div>
+              <div class="gantt-phase-cell"></div>
+              <div class="gantt-phase-cell"></div>
+              <div class="gantt-phase-cell"></div>
+              <div class="gantt-phase-cell"></div>
+            </div>
+            <div class="gantt-row">
+              <div class="gantt-task-name">
+                <strong>Fase 3:</strong> Transformação das Empresas em S.A.
+              </div>
+              <div class="gantt-phase-cell"></div>
+              <div class="gantt-phase-cell"></div>
+              <div class="gantt-phase-cell">
+                <div class="gantt-bar-container">
+                  <div class="gantt-bar bar-fase3"></div>
+                </div>
+              </div>
+              <div class="gantt-phase-cell">
+                <div class="gantt-bar-container">
+                  <div class="gantt-bar bar-fase3"></div>
+                </div>
+              </div>
+              <div class="gantt-phase-cell"></div>
+              <div class="gantt-phase-cell"></div>
+              <div class="gantt-phase-cell"></div>
+              <div class="gantt-phase-cell"></div>
+              <div class="gantt-phase-cell"></div>
+            </div>
+            <div class="gantt-row">
+              <div class="gantt-task-name">
+                <strong>Fase 4:</strong> Acordos de Acionistas e Cláusulas
+              </div>
+              <div class="gantt-phase-cell"></div>
+              <div class="gantt-phase-cell"></div>
+              <div class="gantt-phase-cell"></div>
+              <div class="gantt-phase-cell"></div>
+              <div class="gantt-phase-cell">
+                <div class="gantt-bar-container">
+                  <div class="gantt-bar bar-fase4"></div>
+                </div>
+              </div>
+              <div class="gantt-phase-cell"></div>
+              <div class="gantt-phase-cell"></div>
+              <div class="gantt-phase-cell"></div>
+              <div class="gantt-phase-cell"></div>
+            </div>
+            <div class="gantt-row">
+              <div class="gantt-task-name">
+                <strong>Fase 5:</strong> Transferência de Ativos e Finalização
+              </div>
+              <div class="gantt-phase-cell"></div>
+              <div class="gantt-phase-cell"></div>
+              <div class="gantt-phase-cell"></div>
+              <div class="gantt-phase-cell"></div>
+              <div class="gantt-phase-cell"></div>
+              <div class="gantt-phase-cell">
+                <div class="gantt-bar-container">
+                  <div class="gantt-bar bar-fase5"></div>
+                </div>
+              </div>
+              <div class="gantt-phase-cell"></div>
+              <div class="gantt-phase-cell"></div>
+              <div class="gantt-phase-cell"></div>
+            </div>
+            <div class="gantt-row">
+              <div class="gantt-task-name">
+                <strong>Consultoria</strong>
+              </div>
+              <div class="gantt-phase-cell"></div>
+              <div class="gantt-phase-cell"></div>
+              <div class="gantt-phase-cell"></div>
+              <div class="gantt-phase-cell"></div>
+              <div class="gantt-phase-cell"></div>
+              <div class="gantt-phase-cell"></div>
+              <div class="gantt-phase-cell">
+                <div class="gantt-bar-container">
+                  <div class="gantt-bar bar-consultoria"></div>
+                </div>
+              </div>
+              <div class="gantt-phase-cell">
+                <div class="gantt-bar-container">
+                  <div class="gantt-bar bar-consultoria"></div>
+                </div>
+              </div>
+              <div class="gantt-phase-cell">
+                <div class="gantt-bar-container">
+                  <div class="gantt-bar bar-consultoria"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="slide-23" class="sectional-cover-slide">
+      <div class="container">
+        <h1 class="sectional-cover-title">PRÓXIMOS PASSOS</h1>
+      </div>
+    </section>
+
+    <section id="slide-24" class="list-section-content">
+      <div class="container">
+        <h2 class="section-title">Sua Decisão Hoje Protege Gerações</h2>
+        <div class="side-by-side-container">
+          <div class="info-card">
+            <h3>O Que Acontece Agora:</h3>
+            <p>
+              <strong>Aprovação da proposta:</strong> O ponto de partida para a
+              transformação e segurança do seu patrimônio.
+            </p>
+            <p>
+              <strong>Reunião de planejamento:</strong> Um encontro para
+              alinharmos todos os detalhes da implementação.
+            </p>
+            <p>
+              <strong>Início imediato:</strong> Em até 48 horas, damos os
+              primeiros passos para a construção da nova estrutura.
+            </p>
+          </div>
+          <div class="info-card">
+            <h3>Pontos Chave:</h3>
+            <p>
+              <strong>Implementação gradual:</strong> A estrutura modular foi
+              desenhada para permitir que a implementação ocorra em fases, de
+              forma organizada.
+            </p>
+            <p>
+              <strong>ROI Comprovado:</strong> O retorno do investimento é
+              claro, visível na futura economia tributária e na mitigação de
+              riscos.
+            </p>
+            <p>
+              <strong>Urgência e Risco:</strong> Lembre-se que cada dia sem a
+              estrutura adequada representa uma exposição desnecessária do seu
+              legado.
+            </p>
+          </div>
+        </div>
+        <p
+          class="final-message-text"
+          style="font-size: 1.5rem; margin-top: 40px"
+        ></p>
+      </div>
+    </section>
+
+    <section id="slide-25" style="background-color: var(--bg-dark-secondary)">
+      <div class="container">
+        <h2 class="section-title">Transforme Seu Patrimônio em Legado</h2>
+        <p class="final-quote">
+          "Não é sobre o que você constrói hoje, mas sobre o que você protege
+          para o futuro."
+        </p>
+        <p class="final-cta" style="margin-top: 30px">Vamos começar agora?</p>
+      </div>
+    </section>
+
+    <section id="slide-26" class="logo-only-slide">
+      <div class="container">
+        <img src="https://i.postimg.cc/MKD8hCs3/logo-w1.png" alt="W1 Logo" />
+      </div>
+    </section>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const sections = document.querySelectorAll("section[id^='slide-']");
+        const navLinks = document.querySelectorAll(".navigation .nav-link");
+
+        if (sections.length > 0 && navLinks.length > 0) {
+          const sectionObserver = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  const currentSectionId = entry.target.id;
+                  navLinks.forEach((link) => {
+                    link.classList.remove("active");
+                    const linkHref = link.getAttribute("href").substring(1);
+                    if (linkHref === currentSectionId) {
+                      link.classList.add("active");
+
+                      let isLight =
+                        entry.target.classList.contains("light-section") ||
+                        entry.target.classList.contains("light-gray-section") ||
+                        entry.target.classList.contains("gantt-section") ||
+                        entry.target.classList.contains("organogram-section");
+
+                      document
+                        .querySelectorAll(".navigation .nav-link")
+                        .forEach((nl) => {
+                          if (isLight) {
+                            nl.classList.add("on-light-bg-dot");
+                          } else {
+                            nl.classList.remove("on-light-bg-dot");
+                          }
+                        });
+                    }
+                  });
+                }
+              });
+            },
+            { threshold: 0.55 }
+          );
+
+          sections.forEach((section) => sectionObserver.observe(section));
+        }
+      });
+    </script>
+  </body>
+</html>
